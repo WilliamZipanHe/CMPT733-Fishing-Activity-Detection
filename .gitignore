@@ -1,0 +1,17 @@
+# Editors
+.vscode/
+
+# Mac/OSX
+.DS_Store
+
+# Windows
+Thumbs.db
+
+# Byte-compiled
+__pycache__/
+
+# Jupyter Notebook
+.ipynb_checkpoints
+
+# project folders
+data/
