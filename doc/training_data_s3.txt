@@ -1,0 +1,11 @@
+https://ccpz733.s3.amazonaws.com/new_drifting_longlines.csv
+
+https://ccpz733.s3.amazonaws.com/new_fixed_gear.csv
+
+https://ccpz733.s3.amazonaws.com/new_pole_and_line.csv
+
+https://ccpz733.s3.amazonaws.com/new_purse_seines.csv
+
+https://ccpz733.s3.amazonaws.com/new_trawlers.csv
+
+https://ccpz733.s3.amazonaws.com/new_trollers.csv
