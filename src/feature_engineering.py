@@ -50,7 +50,6 @@ def time_feature(df):
     df["month"] = df["adjust_time_date"].dt.month
     df["day"] = df["adjust_time_date"].dt.day
     df["hour"] = df["adjust_time_date"].dt.hour
-    df = df.drop(columns=['timestamp'])
     return df
 
 def hemisphere_feature(df):
@@ -104,7 +103,7 @@ def main(path, path_sst, path_precip, version):
     precip_df = init_precip_df(path_precip)
 
     fishing_df = time_feature(fishing_df)
-    fishing_df = combine_df_lon_lat(fishing_df, sst_df, precip_df) # comment out if don't need (need time feature function)
+    fishing_df = combine_df_lon_lat(fishing_df, sst_df, precip_df) # comment out if don't need
     fishing_df = hemisphere_feature(fishing_df)
     fishing_df = expanding_mean(fishing_df, 'speed')
     fishing_df = expanding_mean(fishing_df, 'course')
@@ -119,7 +118,7 @@ def main(path, path_sst, path_precip, version):
     fishing_df = rolling_mean_with_time(fishing_df, 'speed', '3d')
     fishing_df = rolling_mean_with_time(fishing_df, 'course', '3d')
     print(fishing_df)
-    fishing_df.to_csv('../data/' + Path(path).stem + '_' + version + '.csv')
+    fishing_df.to_csv('../data/' + Path(path).stem + '_' + version + '.csv', index=False)
 
 
 if __name__ == '__main__':
