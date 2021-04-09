@@ -12,7 +12,7 @@ import plotly.express as px
 from plotly import graph_objs as go
 from plotly.graph_objs import *
 
-#to run with parquet
+# load data
 data = pd.read_csv("data/dashboard_data.csv")
 data['adjust_time_date'] = pd.to_datetime(data['adjust_time_date'])
 data['flag_registry'] = data['flag_registry'].fillna("UNK")
