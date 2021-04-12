@@ -9,10 +9,12 @@ from pathlib import Path
 # init input df - fishing gear
 def init_fishing_df(path):
     fishing_df = pd.read_csv('../data/' + path)
+    # comment out for real life data--------------
     fishing_df = fishing_df[fishing_df['is_fishing'] > -0.5]
     fishing_df['is_fishing'] = [0 if x < 0.3 else 1 for x in fishing_df['is_fishing']]
     fishing_df = fishing_df[['is_fishing', 'lat', 'lon', 'course', 'speed', 'timestamp', 'distance_from_shore', 'distance_from_port', 'mmsi', 'source']]
     fishing_df['gear_type'] = Path(path).stem
+    #---------------------------------------------
     return fishing_df
 
 
@@ -60,12 +62,24 @@ def hemisphere_feature(df):
 def combine_df_lon_lat(fishing_df, sst_df, precip_df):
     fishing_df['adjust_lat'] = fishing_df['lat'].apply(lambda x: custom_round(x))
     fishing_df['adjust_lon'] = fishing_df['lon'].apply(lambda x: custom_round(x))
+    # comment out for training data--------------
+    # approximate sst and precip using 2015 data
+    # sst_df = sst_df[(sst_df['time_bnds'].dt.year == 2015) & (sst_df['time_bnds'].dt.month == 4)]
+    # precip_df = precip_df[(precip_df['time'].dt.year == 2015) & (precip_df['time'].dt.month == 4)]
+    # df_all = pd.merge(fishing_df, sst_df,  how='left', \
+    #                   left_on=['adjust_lat','adjust_lon'], \
+    #                   right_on = ['lat','lon'])
+    # df_all = pd.merge(df_all, precip_df,  how='left', \
+    #                   left_on=['adjust_lat','adjust_lon'], \
+    #                   right_on = ['lat','lon'])
+    # comment out for real life data--------------
     df_all = pd.merge(fishing_df, sst_df,  how='left', \
                       left_on=['adjust_lat','adjust_lon', 'adjust_time'], \
                       right_on = ['lat','lon', 'time_bnds'])
     df_all = pd.merge(df_all, precip_df,  how='left', \
                       left_on=['adjust_lat','adjust_lon', 'adjust_time'], \
                       right_on = ['lat','lon', 'time'])
+    #---------------------------------------------
     df_all = df_all.drop(columns=['adjust_time', 'adjust_lon', 'adjust_lat', 'time', 'lat', 'lon', 'lat_y','lon_y', 'time_bnds'])
     return df_all
 
