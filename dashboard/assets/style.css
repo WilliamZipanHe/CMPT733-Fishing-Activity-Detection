@@ -1,6 +1,6 @@
 body {
   background-color: #3D5A80;
-  color: #fafafa;
+  color: #f7f7f7;
   margin: 0;
   padding: 0;
 }
@@ -37,31 +37,40 @@ input[type='checkbox'] {
   min-width: 100%;
 }
 .div-panel {
-  padding-left: 5%;
+  padding-left: 4%;
   padding-top: 2%;
 }
 .div-dropdown {
-  width: 25%;
-  padding-top: 12px;
-  padding-bottom: 12px;
-  display:inline-block;
+  width: 20%;
+  /* padding-left: 10px; */
+  margin-left: auto;
+  margin-right: 0;
+  /* display:inline-block; */
 }
 .div-checkbox {
   width:25%;
-  padding-top: 12px;
-  padding-bottom: 12px;
   display:inline-block;
+}
+.div-banner {
+  width: 100%;
+  height: 55px;
+  display: flex;
+  align-items: center;
+}
+.div-banner-box {
+  font-weight: bold;
+  font-size: 18px;
+  display: flex;
+  align-items: center;
 }
 
 /* Dash preset demo css*/
 .Select-control, .Select-menu-outer, .Select-multi-value-wrapper, .select-up, .is-open .Select-control {
   background-color: white;
   color: black;
-  width: 80%;
+  width: 100%;
 }
-.Select-control{
-  border: 0.5px solid #dbdbdb44;
-}
+
 .has-value.Select--single>.Select-control .Select-value .Select-value-label, .has-value.is-pseudo-focused.Select--single>.Select-control .Select-value .Select-value-label {
   color: #586284;
 }
