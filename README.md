@@ -149,6 +149,13 @@ python src/train.py --data ./data/preprocess_dataset_v2.csv --model lgb --method
 ```
 We now offered lgb (LightGBM) and xgb (XGBoost) models to choose from. For the method argument, users can use `vanilla` or `bayesian`, where vanilla use all the hyperparameter as the default value. The results will be written to result/results.csv
 
+## Predicting and Evaluating
+To predict the model and evaluate the preprocessed data, run
+```
+python src/predict_model_use.py
+```
+We use LightGBM + Bayesian Optimization in this file to build our model, f1 score figure will be plotted out and evaluation result will be printed out in the end。
+
 ## Scraping:
 
 ### Scraping online data: 
