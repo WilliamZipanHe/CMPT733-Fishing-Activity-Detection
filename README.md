@@ -143,7 +143,7 @@ Note* \
 current scaler and model is set up for all vessels and all features
 
 ## Downloading Preprocessed Data
-Since we have acquired most of the data manually from websites and the data file is too large to upload to github, we provide the preprocessed data for reproduction of our training process. To download the data, enter the following commands in repo root:
+Since we have acquired most of the data manually from websites and the data files are too large to upload to github, we provide the preprocessed data for reproduction of our training process. To download the data, enter the following commands in repo root:
 ```
 wget "https://www.dropbox.com/s/n21qe0bi0ski45t/preprocess_dataset_v2.csv?dl=1" -O "preprocess_dataset_v2.csv"
 mv preprocess_dataset_v2.csv ./data/
@@ -154,7 +154,7 @@ To train the model with preprocessed data, run
 ```
 python src/train.py --data ./data/preprocess_dataset_v2.csv --model lgb --method bayesian
 ```
-We now offered lgb (LightGBM) and xgb (XGBoost) models to choose from. For the method argument, users can use `vanilla` or `bayesian`, where vanilla use all the hyperparameter as the default value. The results will be written to result/results.csv
+We now offered lgb (LightGBM) and xgb (XGBoost) models to select from. For the method argument, users can use `vanilla` or `bayesian`, where vanilla use all the hyperparameters as their default values. The results will be written to result/results.csv
 
 ## Predicting and Evaluating
 To predict the model and evaluate the preprocessed data, run
