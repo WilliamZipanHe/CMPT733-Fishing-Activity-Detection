@@ -15,9 +15,6 @@ https://globalfishingwatch.org/data-download/datasets/public-training-data-v1 \
 
 - function: eda/eda_ais.ipynb
 
-### vessel mmsi data EDA:
-input: 
-
 ### vessel map data EDA:
 explore vessel location and trajectory
 
@@ -97,7 +94,7 @@ combine all individual datasets into a combined dataset (comment out not require
 - function: src/joining_df.py \
 (example) python joining_df.py trollers_v1.csv trawlers_v1.csv v1
 
-- output: (example) ../data/combine_vessel_v1.csv
+- output: (example) ../data/combine_gear_v1.csv
 
 ### Preprocess data:
 Fill missing value, one hot encode categoried features and apply scaler
@@ -127,7 +124,7 @@ test training preprocessing data and using the trained model to predict real lif
 
 - input: preprocessed data set to train and real life preprocessed data to visualize \
 (example) preprocess_dataset_v1.csv \
-(example) preprocess_dataset_rl_v1.csv
+(example) preprocess_dataset_rl_v1.csv (require download/scrap/api external dataset then transform)
 
 - function: test_reallife_data_prediction.ipynb \
 
