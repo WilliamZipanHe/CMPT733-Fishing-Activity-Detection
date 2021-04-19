@@ -4,6 +4,17 @@ This project aims to predict fishing activity using our trained model from sever
 ## Fishing Activity Dashboard URL
 https://fishing-activity-detection.herokuapp.com
 
+## Run the Dashboard Locally
+Please use the following commands from command line:
+```
+cd dashboard
+virtualenv venv
+source venv/bin/activate
+pip install -r requirements.txt
+python app.py
+```
+
+
 ## EDA
 
 ### vessel AIS data EDA:
@@ -130,6 +141,13 @@ test training preprocessing data and using the trained model to predict real lif
 
 Note* \
 current scaler and model is set up for all vessels and all features
+
+## Training
+To train the model with preprocessed data, run
+```
+python src/train.py --data ./data/preprocess_dataset_v2.csv --model lgb --method bayesian
+```
+We now offered lgb (LightGBM) and xgb (XGBoost) models to choose from. For the method argument, users can use `vanilla` or `bayesian`, where vanilla use all the hyperparameter as the default value. The results will be written to result/results.csv
 
 ## Scraping:
 
