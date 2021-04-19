@@ -1,10 +1,10 @@
 # CMPT733-Fish-Activity-Detection
 This project aims to predict fishing activity using our trained model from several known parameters including the sailing pattern of fishing vessels, location of the vessel, and fishing boundaries. From our prediction, we will be able to isolate vessels which display fishing activity but are not registered as an active fishing vessel. Researchers can furtheruse real-time satellite images/ AIS data as input to our trained model to classify vessel typeand identify potential illegal fishing activity, which would help protect the endangeredspecies.
 
-# Fishing Activity Dashboard URL
+## Fishing Activity Dashboard URL
 https://fishing-activity-detection.herokuapp.com
 
-# EDA
+## EDA
 
 ### vessel AIS data EDA:
 explore vessel initial AIS training data
@@ -27,7 +27,7 @@ https://globalfishingwatch.org/data-download/datasets/public-training-data-v1 \
 
 - function: eda/eda_vessel_map.ipynb
 
-# Data integration and feature engineering:
+## Data integration and feature engineering:
 
 ### Sea surface temperature integration:
 reduce size of sst grid to rounded lat/lon and time range
@@ -110,7 +110,7 @@ Fill missing value, one hot encode categoried features and apply scaler
 
 - output: preprocess_dataset_v1.csv, scaler.gz
 
-# Examine datasets:
+## Examine datasets:
 
 ### External data joining test
 join sst and precip to each vessel data with print dataframe(depricated! - moved to feature_engineering.py)
@@ -134,7 +134,7 @@ test training preprocessing data and using the trained model to predict real lif
 Note* \
 current scaler and model is set up for all vessels and all features
 
-# Scraping:
+## Scraping:
 
 ### Scraping online data: 
 our data is a combination of ais download from multiple sites plus scraping, the following is an example of 2 of the test scarper built
