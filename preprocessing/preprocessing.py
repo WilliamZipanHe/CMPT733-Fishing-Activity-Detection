@@ -43,7 +43,7 @@ def preprocess_scaling(df, scaler):
     # comment out for real life data--------------
     data = df.iloc[:, 1:]
     df[data.columns] = scaler.fit_transform(data)
-    joblib.dump(scaler, 'scaler.gz')
+    joblib.dump(scaler, '../scraping/scaler.gz')
     # comment out for training data--------------
     # df = df[['lat_x','lon_x','course','speed','timestamp','distance_from_shore','distance_from_port','mmsi','doy','dow','season','year','month','day','hour',\
     #     'sst','precip','speed_expand_mean','course_expand_mean','speed_rolling_mean','course_rolling_mean','speed_rolling_mean_3h','course_rolling_mean_3h',\
