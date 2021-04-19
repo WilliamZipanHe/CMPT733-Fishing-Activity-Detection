@@ -13,7 +13,7 @@ source venv/bin/activate
 pip install -r requirements.txt
 python app.py
 ```
-
+Open the browser and enter the url as shown in the terminal.
 
 ## EDA
 
