@@ -117,7 +117,7 @@ def bo_lgb_train(opt, x_train, y_train, x_test, y_test):
 
 
 if __name__=="__main__":
-    df = pd.read_csv(os.path.join('..', 'data', 'preprocess_dataset_v1.csv'))
+    df = pd.read_csv(os.path.join('..', 'data', 'preprocess_dataset_v2.csv'))
     x_train, x_test, y_train, y_test = generate_mmsi_samples(df, target='is_fishing', test_size=0.2, random_seed=42)
     #n_iters could be changed for baeysian optimization iteration times
     opt = baeysian_opt_lgbm(x_train, y_train, n_iters=10)
