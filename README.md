@@ -142,6 +142,13 @@ test training preprocessing data and using the trained model to predict real lif
 Note* \
 current scaler and model is set up for all vessels and all features
 
+## Downloading Preprocessed Data
+Since we have acquired most of the data manually from websites, we provide the preprocessed data for reproduction of our training provess. To download the data
+```
+wget "https://www.dropbox.com/s/n21qe0bi0ski45t/preprocess_dataset_v2.csv?dl=1" -O "preprocess_dataset_v2.csv"
+mv preprocess_dataset_v2.csv ./data/
+```
+
 ## Training
 To train the model with preprocessed data, run
 ```
@@ -191,7 +198,7 @@ current scaler and model is set up for all vessels and all features
 
 ## Other Contributions
 
-------
+--------------------------------------------------------
 
 | Person    | Contribution                             |
 | --------- | ---------------------------------------- |
