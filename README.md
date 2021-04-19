@@ -31,7 +31,7 @@ reduce size of sst grid to rounded lat/lon and time range
 
 - input: SST file (sst.wkmean.1990-present.nc) \
 https://psl.noaa.gov/repository/entry/show?entryid=4abf55c8-335b-4117-b595-d7ce3d242f4f \
-save as ../data/sst_noaa.nc \ 
+save as ../data/sst_noaa.nc \
 optional input to test join: individual vessel data
 
 - function: preprocesssing/feature_sst.ipynb
@@ -60,33 +60,36 @@ https://globalfishingwatch.org/data-download/datasets/public-distance-from-port-
 save as ../data/distance-from-port-v1.tiff \
 https://globalfishingwatch.org/data-download/datasets/public-distance-from-shore-v1 \
 save as ../data/distance-from-shore.tif \
+sst_grid.csv (From Sea surface temperature integration) \
+precip_grid.csv (From Precipitation temperature integration)
 
-- function: preprocesssing/feature_engineering_new_vessel.py
+- function: preprocesssing/minimize_external_feature.py \
+(example) python minimize_external_feature.py
 
 - output: ../data/dfp_bc_section.csv, ../data/dfs_bc_section.csv, ../data/sst_grid_sm.csv, ../data/precip_grid_sm.csv
 
 ### Join external data and add new feature:
 join sst and precip to current vessel data, and expand on original features
 
-- input: individual vessel data, sst grid file, precipitation grid file
-https://globalfishingwatch.org/data-download/datasets/public-training-data-v1
-../data/sst_grid.csv \
-../data/precip_grid.csv \
+- input: individual vessel data, sst grid file, precipitation grid file \
+https://globalfishingwatch.org/data-download/datasets/public-training-data-v1 \
+../data/sst_grid.csv (From Sea surface temperature integration) \
+../data/precip_grid.csv (From Precipitation temperature integration)
 
 - function: preprocessing/feature_engineering.py \
 (example) python feature_engineering.py trollers.csv sst_grid.csv precip_grid.csv v1
 
 - output: (example) ../data/trollers_v1.csv
 
-Note* \ 
+Note* \
 The feature engineering of our data set is done seperatly on each vessel type, as we plan to train individual and combination models to evaluate the performance
 
 
 ### Join individual vessel dataset:
 combine all individual datasets into a combined dataset (comment out not required gear type)
 
-- input: all 6 vessel csv files
-(example) ../data/trollers_v1.csv
+- input: all 6 vessel csv files \
+(example) ../data/trollers_v1.csv (From Join external data and add new feature)
 
 - function: src/joining_df.py \
 (example) python joining_df.py trollers_v1.csv trawlers_v1.csv v1
@@ -97,16 +100,17 @@ combine all individual datasets into a combined dataset (comment out not require
 Fill missing value, one hot encode categoried features and apply scaler
 
 - input: vessel csv files or combine vessel file after feature_engineering.py
+(example) ../data/combine_gear_v1.csv (From Join individual vessel dataset)
 
-- function: preprocessing/preprocessing.py \ 
-python preprocessing.py combine_gear_v1.csv v1
+- function: preprocessing/preprocessing.py \
+(example) python preprocessing.py combine_gear_v1.csv v1
 
 - output: preprocess_dataset_v1.csv, scaler.gz
 
 # Examine datasets:
 
 ### External data joining test
-join sst and precip to each vessel data (depricated! - moved to feature_engineering.py)
+join sst and precip to each vessel data with print dataframe(depricated! - moved to feature_engineering.py)
 
 - input: individual vessel data, sst grid file, precipitation grid file \
 (example) trollers.csv \
@@ -123,6 +127,9 @@ test training preprocessing data and using the trained model to predict real lif
 (example) preprocess_dataset_rl_v1.csv
 
 - function: test_reallife_data_prediction.ipynb \
+
+Note* \
+current scaler and model is set up for all vessels and all features
 
 # Scraping:
 
@@ -147,9 +154,12 @@ scaler.gz \
 sst_grid_sm.csv \
 precip_grid_sm.csv \
 dfp_bc_section.csv \
-dfs_bc_section.csv \
+dfs_bc_section.csv
 
 - function: scraping/scrape_preprocess.py
-(example) 
+(example) python scrape_preprocess.py
 
 - output: to s3
+
+Note* \
+current scaler and model is set up for all vessels and all features
