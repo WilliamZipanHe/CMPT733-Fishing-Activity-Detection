@@ -1,18 +1,3 @@
-# Implementation
-
-## Use following command to run training python file
-
-~~~
-$ python3 train.py
-~~~
-
-## Use following command to run model prediction python file
-
-~~~
-$ python3 predict_model_use.py
-~~~
-
-
 
 label
 -is_fishing
