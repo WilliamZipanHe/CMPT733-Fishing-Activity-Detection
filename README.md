@@ -35,7 +35,7 @@ https://globalfishingwatch.org/data-download/datasets/public-training-data-v1 \
 
 - function: eda/eda_vessel_map.ipynb
 
-## Data integration and feature engineering:
+## Data integration and feature engineering
 
 ### Sea surface temperature integration:
 reduce size of sst grid to rounded lat/lon and time range
@@ -118,7 +118,7 @@ Fill missing value, one hot encode categoried features and apply scaler
 
 - output: preprocess_dataset_v1.csv, scaler.gz
 
-## Examine datasets:
+## Examine datasets
 
 ### External data joining test
 join sst and precip to each vessel data with print dataframe(depricated! - moved to feature_engineering.py)
@@ -156,7 +156,7 @@ python src/predict_model_use.py
 ```
 We use LightGBM + Bayesian Optimization in this file to build our model, f1 score figure will be plotted out and evaluation result will be printed out in the end。
 
-## Scraping:
+## Scraping
 
 ### Scraping online data: 
 our data is a combination of ais download from multiple sites plus scraping, the following is an example of 2 of the test scarper built
@@ -188,3 +188,14 @@ dfs_bc_section.csv
 
 Note* \
 current scaler and model is set up for all vessels and all features
+
+## Other Contributions
+
+------
+
+| Person    | Contribution                             |
+| --------- | ---------------------------------------- |
+| Chuan-Yun | Milestone 2 Presentation                 |
+| Chevy     | Data Collection + Data Source Evaluation |
+| Pengyu    | Video Production + Final Presentation    |
+| Zipan     | Git Management + Data Source Evaluation  |
